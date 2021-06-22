@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "1070346577077",
+    "project_id": "transid-app",
+    "storage_bucket": "transid-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1070346577077:android:5d9055c5b76e330392cafc",
+        "android_client_info": {
+          "package_name": "com.example.transid"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1070346577077-54dfcajg8fpgpqt406r3o92i2vmd1c66.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.transid",
+            "certificate_hash": "9cf3cc88d5bfdc25f5f97dc2eefdac2bc61ad55a"
+          }
+        },
+        {
+          "client_id": "1070346577077-vsg1j6jf6nngli6sb7ng1f9vhdrlskga.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBplvA1ruF58Oqa_eoGANeIlpMWmMzgQYY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1070346577077-vsg1j6jf6nngli6sb7ng1f9vhdrlskga.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
