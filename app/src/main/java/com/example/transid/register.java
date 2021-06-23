@@ -30,9 +30,8 @@ public class register extends AppCompatActivity {
     private EditText textDUI;
     private EditText textPassword;
     private Button btnRegistrar;
-    private RadioButton rdPasajero;
-    private RadioButton rdMotorista;
-    private Switch switchBio;
+
+
 
 
     private String nombre;
@@ -57,14 +56,10 @@ public class register extends AppCompatActivity {
         textDUI = (EditText) findViewById(R.id.editTextDui);
         textEmail = (EditText) findViewById(R.id.editTextEmail);
         textPassword = (EditText) findViewById(R.id.editTextPassword);
-        rdPasajero = (RadioButton) findViewById(R.id.rdPasajero);
-        rdMotorista = (RadioButton) findViewById(R.id.rdMotorista);
-        btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
-        switchBio = (Switch) findViewById(R.id.switch1);
 
-        if(rdMotorista.isChecked()){
-            switchBio.setVisibility(View.VISIBLE);
-        }
+        btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
+
+
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
             @Override
