@@ -54,7 +54,7 @@ private FirebaseAuth fAuth;
     btnRegistro.setOnClickListener(new View.OnClickListener() {
         @Override
         public void onClick(View v) {
-            Intent intent = new Intent( MainActivity.this, register.class);
+            Intent intent = new Intent( MainActivity.this, typeuser.class);
             startActivity(intent);
         }
     });

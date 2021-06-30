@@ -8,6 +8,7 @@ import android.provider.MediaStore;
 import android.view.View;
 import android.view.inputmethod.EditorInfo;
 import android.widget.Button;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.Switch;
@@ -20,7 +21,11 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Map;
 
 public class register extends AppCompatActivity {
@@ -30,7 +35,7 @@ public class register extends AppCompatActivity {
     private EditText textDUI;
     private EditText textPassword;
     private Button btnRegistrar;
-
+    private CheckBox Vacuna;
 
 
 
@@ -58,7 +63,7 @@ public class register extends AppCompatActivity {
         textPassword = (EditText) findViewById(R.id.editTextPassword);
 
         btnRegistrar = (Button) findViewById(R.id.btnRegistrar);
-
+        Vacuna = (CheckBox) findViewById(R.id.cbVacuna);
 
 
         btnRegistrar.setOnClickListener(new View.OnClickListener() {
@@ -73,7 +78,12 @@ public class register extends AppCompatActivity {
 
             if (!nombre.isEmpty() && !DUI.isEmpty() && !email.isEmpty() && !contraseña.isEmpty()){
                 if (contraseña.length() >= 6){
+                    if(Vacuna.isChecked()){
                         RegistrarUsuario();
+                    }else{
+                        RegistrarUsuario_sinvacuna();
+                    }
+
                 }
                 else{
                     Toast.makeText(register.this, "La contraseña debe tener almenos 6 caracteres", Toast.LENGTH_SHORT).show();
@@ -92,15 +102,22 @@ public class register extends AppCompatActivity {
                 public void onComplete(@NonNull Task<AuthResult> task) {
                 if(task.isSuccessful()){
                     Map<String, Object> map = new HashMap<>();
+                    SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd", Locale.getDefault());
+                    Date date = new Date();
+
+                    String fecha = dateFormat.format(date);
+
 
                     map.put( "Nombre", nombre);
                     map.put("DUI", DUI);
                     map.put( "Email", email);
                     map.put ( "Password", contraseña);
+                    map.put ("Vacuna-aplicada", "si");
+                    map.put("Fecha-Vacuna", fecha);
 
                     String id = fAuth.getCurrentUser().getUid();
 
-                    DBBreferencia.child("Usuarios").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                    DBBreferencia.child("Pasajero").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
                         @Override
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
@@ -114,6 +131,36 @@ public class register extends AppCompatActivity {
                 }
             });
         }
+
+    private void RegistrarUsuario_sinvacuna(){
+        fAuth.createUserWithEmailAndPassword(email, contraseña).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Map<String, Object> map = new HashMap<>();
+
+                    map.put( "Nombre", nombre);
+                    map.put("DUI", DUI);
+                    map.put( "Email", email);
+                    map.put ( "Password", contraseña);
+                    map.put ("Vacuna-aplicada", "no");
+
+                    String id = fAuth.getCurrentUser().getUid();
+
+                    DBBreferencia.child("Pasajero").child(id).setValue(map).addOnCompleteListener(new OnCompleteListener<Void>() {
+                        @Override
+                        public void onComplete(@NonNull Task<Void> task2) {
+                            if (task2.isSuccessful()) {
+                                Toast.makeText(register.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
+                            }else{
+                                Toast.makeText(register.this, "Error de registro", Toast.LENGTH_SHORT).show();
+                            }
+                        }
+                    });
+                }
+            }
+        });
+    }
 
 
 

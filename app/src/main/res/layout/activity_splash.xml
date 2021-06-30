@@ -4,23 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_gradiente"
+    android:background="@color/black"
     tools:context=".Splash">
-
-    <TextView
-        android:id="@+id/textView13"
-        android:layout_width="158dp"
-        android:layout_height="82sp"
-        android:layout_marginBottom="340dp"
-        android:text="SID"
-        android:textColor="#D8FFFFFF"
-        android:textSize="60sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.936"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.05" />
 
     <ImageView
         android:id="@+id/imageView3"
@@ -31,23 +16,37 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.121"
-        app:srcCompat="@mipmap/bus" />
+        app:layout_constraintVertical_bias="0.247"
+        app:srcCompat="@mipmap/bus_icon_white" />
 
     <TextView
         android:id="@+id/textView6"
         android:layout_width="158dp"
         android:layout_height="82dp"
-        android:layout_marginStart="76dp"
-        android:layout_marginBottom="340dp"
+        android:layout_marginTop="40dp"
         android:text="TRAN"
+        android:textColor="#F1E8E8"
         android:textSize="60sp"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.292"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <TextView
+        android:id="@+id/textView13"
+        android:layout_width="150sp"
+        android:layout_height="82sp"
+        android:text="SID"
+        android:textColor="#FF9800"
+        android:textSize="60sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toEndOf="@+id/textView6"
+        app:layout_constraintTop_toBottomOf="@+id/imageView3"
+        app:layout_constraintVertical_bias="0.135" />
 
     <TextView
         android:id="@+id/textView14"
@@ -55,24 +54,26 @@
         android:layout_height="wrap_content"
         android:text="Viajar seguro, Vivir seguro"
         android:textAlignment="center"
-        android:textColor="#0B0707"
+        android:textColor="#FF9800"
         android:textSize="30sp"
         android:textStyle="italic"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.483"
+        app:layout_constraintHorizontal_bias="0.493"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView6"
-        app:layout_constraintVertical_bias="0.044" />
+        app:layout_constraintVertical_bias="0.166" />
 
     <pl.droidsonroids.gif.GifImageView
-        android:layout_width="241dp"
-        android:layout_height="189dp"
+        android:id="@+id/gifImageView"
+        android:layout_width="97dp"
+        android:layout_height="71dp"
         android:src="@drawable/bus_gif"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView14"
-        app:layout_constraintVertical_bias="0.226"></pl.droidsonroids.gif.GifImageView>
+        app:layout_constraintVertical_bias="0.944"></pl.droidsonroids.gif.GifImageView>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

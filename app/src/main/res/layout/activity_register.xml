@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo_gradiente"
+    android:background="@mipmap/darkciy"
     tools:context=".register">
 
     <ImageView
@@ -15,44 +15,33 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.059"
-        app:srcCompat="@mipmap/bus" />
+        app:layout_constraintVertical_bias="0.027"
+        app:srcCompat="@mipmap/bus_icon_white" />
 
     <TextView
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="TRAN"
-        android:textSize="50sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toStartOf="@+id/textView8"
-        app:layout_constraintHorizontal_bias="1.0"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.05" />
-
-    <TextView
-        android:id="@+id/textView8"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="SID"
-        android:textColor="#D8FFFFFF"
+        android:text="Registrarse"
+        android:textColor="#FF9800"
         android:textSize="50sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.674"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintVertical_bias="0.0" />
 
     <EditText
         android:id="@+id/editTextNombre"
         android:layout_width="357dp"
         android:layout_height="62dp"
         android:layout_marginBottom="396dp"
+        android:backgroundTint="#FF5722"
         android:ems="10"
         android:hint="nombre completo"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#EADDDD"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.487"
@@ -61,11 +50,14 @@
 
     <EditText
         android:id="@+id/editTextEmail"
-        android:layout_width="354dp"
-        android:layout_height="43dp"
+        android:layout_width="360dp"
+        android:layout_height="52dp"
+        android:backgroundTint="#FF5722"
         android:ems="10"
         android:hint="Correo Electronico"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#DFCACA"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -77,9 +69,12 @@
         android:id="@+id/editTextPassword"
         android:layout_width="357dp"
         android:layout_height="54dp"
+        android:backgroundTint="#FF5722"
         android:ems="10"
         android:hint="Contraseña"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#D5BBBB"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -91,9 +86,12 @@
         android:id="@+id/editTextDui"
         android:layout_width="356dp"
         android:layout_height="45dp"
+        android:backgroundTint="#FF5722"
         android:ems="10"
         android:hint="DUI"
         android:inputType="textPersonName"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#D8B6B6"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.497"
@@ -101,31 +99,45 @@
         app:layout_constraintTop_toBottomOf="@+id/editTextNombre"
         app:layout_constraintVertical_bias="0.031" />
 
-    <Switch
-        android:id="@+id/switch1"
-        android:layout_width="239dp"
-        android:layout_height="58dp"
-        android:text="Bioseguridad"
-        android:textAlignment="center"
-        android:textSize="20sp"
-        android:visibility="invisible"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
-        app:layout_constraintVertical_bias="0.144" />
-
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="416dp"
-        android:layout_height="85dp"
-        android:backgroundTint="#156498"
+        android:layout_width="240dp"
+        android:layout_height="81dp"
+        android:backgroundTint="#FF5722"
         android:text="Finalizar registro"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.532"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/switch1"
-        app:layout_constraintVertical_bias="1.0" />
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintVertical_bias="0.692" />
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="¿Se le fue aplicada la vacuna?"
+        android:textColor="#FFFFFF"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintEnd_toStartOf="@+id/cbVacuna"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintVertical_bias="0.471" />
+
+    <CheckBox
+        android:id="@+id/cbVacuna"
+        android:layout_width="96dp"
+        android:layout_height="60dp"
+        android:padding="50dp"
+        android:text="CheckBox"
+
+        app:layout_constraintBottom_toTopOf="@+id/btnRegistrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/editTextPassword"
+        app:layout_constraintVertical_bias="0.459" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
