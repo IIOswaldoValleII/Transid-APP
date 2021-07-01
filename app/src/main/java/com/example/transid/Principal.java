@@ -2,8 +2,12 @@ package com.example.transid;
 
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.app.ActivityCompat;
+import androidx.core.content.ContextCompat;
 
+import android.Manifest;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -37,6 +41,7 @@ public class Principal extends AppCompatActivity {
         DBBReferencia = FirebaseDatabase.getInstance().getReference();
         nombreusuario = (TextView) findViewById(R.id.txtNombreUsuario);
         botonmapa = (ImageView) findViewById(R.id.btnMapa);
+
 
         botonmapa.setOnClickListener(new View.OnClickListener() {
             @Override
