@@ -3,6 +3,7 @@ package com.example.transid;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.view.View;
@@ -80,8 +81,12 @@ public class register extends AppCompatActivity {
                 if (contraseña.length() >= 6){
                     if(Vacuna.isChecked()){
                         RegistrarUsuario();
+                        Intent intent = new Intent( register.this, MainActivity.class);
+                        startActivity(intent);
                     }else{
                         RegistrarUsuario_sinvacuna();
+                        Intent intent = new Intent( register.this, MainActivity.class);
+                        startActivity(intent);
                     }
 
                 }

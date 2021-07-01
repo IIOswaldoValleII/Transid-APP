@@ -3,6 +3,7 @@ package com.example.transid;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -22,6 +23,7 @@ public class Principal extends AppCompatActivity {
     private FirebaseAuth fAuth;
     private DatabaseReference DBBReferencia;
     private TextView nombreusuario;
+    private ImageView botonmapa;
     private String nombre = "";
     private String correo = "";
     private String contraseña = "";
@@ -34,14 +36,22 @@ public class Principal extends AppCompatActivity {
         fAuth = FirebaseAuth.getInstance();
         DBBReferencia = FirebaseDatabase.getInstance().getReference();
         nombreusuario = (TextView) findViewById(R.id.txtNombreUsuario);
+        botonmapa = (ImageView) findViewById(R.id.btnMapa);
 
+        botonmapa.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent( Principal.this, map.class);
+                startActivity(intent);
+            }
+        });
 
     }
 
     private void InformacionUsuario(){
         String id = fAuth.getCurrentUser().getUid();
 
-        DBBReferencia.child("Usuarios").child(id).addValueEventListener(new ValueEventListener() {
+        DBBReferencia.child("Pasajero").child(id).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 if (snapshot.exists()){
