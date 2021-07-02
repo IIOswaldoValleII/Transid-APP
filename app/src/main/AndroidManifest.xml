@@ -18,8 +18,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Transid">
-        <activity android:name=".Register_Motorista"></activity>
-        <activity android:name=".CargaGPS"></activity>
+        <activity android:name=".SplashIdentify"></activity>
+        <activity android:name=".Principal_Moto" />
+        <activity
+            android:name=".Principal_Motorista"
+            android:label="@string/title_activity_principal__motorista"
+            android:theme="@style/Theme.Transid.NoActionBar" />
+        <activity android:name=".Register_Motorista" />
+        <activity android:name=".CargaGPS" />
         <!--
              The API key for Google Maps-based APIs is defined as a string resource.
              (See the file "res/values/google_maps_api.xml").
