@@ -4,7 +4,9 @@ import androidx.annotation.NonNull;
 import androidx.fragment.app.FragmentActivity;
 
 import android.os.Bundle;
+import android.os.CountDownTimer;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -38,6 +40,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
                 .findFragmentById(R.id.map);
         mapFragment.getMapAsync(this);
         DBBreferencia = FirebaseDatabase.getInstance().getReference();
+        countDownTimer();
 
     }
 
@@ -53,7 +56,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
-        DBBreferencia.child("Pasajero_SI").addValueEventListener(new ValueEventListener() {
+        DBBreferencia.child("Pasajero_SI").addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
 
@@ -73,6 +76,7 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
 
                 MarkersActualizados.clear();
                 MarkersActualizados.addAll(MarkersTraidos);
+                countDownTimer();
             }
 
             @Override
@@ -85,4 +89,19 @@ public class MapsActivity extends FragmentActivity implements OnMapReadyCallback
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
     }
+    private void countDownTimer(){
+        new CountDownTimer(10000, 1000) {
+
+            public void onTick(long millisUntilFinished) {
+                Log.e("seconds remaining: ", "" + millisUntilFinished / 1000);
+
+            }
+
+            public void onFinish() {
+                Toast.makeText(MapsActivity.this, "Actualizado", Toast.LENGTH_SHORT).show();
+                onMapReady(mMap);
+            }
+        }.start();
+    }
+
 }

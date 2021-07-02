@@ -24,7 +24,7 @@ public class typeuser extends AppCompatActivity {
         Motorista.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent( typeuser.this, register.class);
+                Intent intent = new Intent( typeuser.this, Register_Motorista.class);
                 startActivity(intent);
             }
         });

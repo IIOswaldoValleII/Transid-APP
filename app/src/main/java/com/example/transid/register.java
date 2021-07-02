@@ -127,8 +127,11 @@ public class register extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
                                 Toast.makeText(register.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent( register.this, MainActivity.class);
+                                startActivity(intent);
                             }else{
                                 Toast.makeText(register.this, "Error de registro", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });
@@ -157,8 +160,11 @@ public class register extends AppCompatActivity {
                         public void onComplete(@NonNull Task<Void> task2) {
                             if (task2.isSuccessful()) {
                                 Toast.makeText(register.this, "Usuario Registrado", Toast.LENGTH_SHORT).show();
+                                Intent intent = new Intent( register.this, MainActivity.class);
+                                startActivity(intent);
                             }else{
                                 Toast.makeText(register.this, "Error de registro", Toast.LENGTH_SHORT).show();
+
                             }
                         }
                     });

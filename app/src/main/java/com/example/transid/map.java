@@ -38,7 +38,7 @@ import java.util.Map;
 
 public class map extends AppCompatActivity {
     private int MY_PERMISSIONS_REQUEST_READ_CONTACT;
-    private TextView ubicacion;
+
     FirebaseDatabase database = FirebaseDatabase.getInstance();
     DatabaseReference DBBreferencia;
     private FirebaseAuth fAuth;
@@ -49,7 +49,7 @@ public class map extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_map);
-        ubicacion = (TextView) findViewById(R.id.txtUbicacion);
+
         fAuth = FirebaseAuth.getInstance();
         DBBreferencia = FirebaseDatabase.getInstance().getReference();
         prueba = (Button) findViewById(R.id.btnprueba);
@@ -72,8 +72,6 @@ public class map extends AppCompatActivity {
                     public void onSuccess(Location location) {
                         // Got last known location. In some rare situations this can be null.
                         if (location != null) {
-                            String LatitudLongitud = "" +location.getLatitude()+ " , " +location.getLongitude();
-                            ubicacion.setText(LatitudLongitud);
 
 
                             Map<String, Object> map = new HashMap<>();
